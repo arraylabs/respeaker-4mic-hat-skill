@@ -14,7 +14,6 @@
 
 import time
 from pixel_ring import pixel_ring
-from gpiozero import LED
 from mycroft import MycroftSkill, intent_file_handler
 from mycroft.messagebus.message import Message
 from mycroft.util.log import LOG
@@ -27,7 +26,6 @@ class ReSpeaker_4mic_hat(MycroftSkill):
     def initialize(self):
         LOG.debug("initialising")
 
-        power = LED(5)
         power.on()
 
         pixel_ring.set_brightness(10)
