@@ -27,8 +27,6 @@ class ReSpeaker_4mic_hat(MycroftSkill):
     def initialize(self):
         LOG.debug("initialising")
 
-        power.on()
-
         pixel_ring.set_brightness(10)
         pixel_ring.wakeup()
 
