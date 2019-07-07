@@ -14,7 +14,8 @@
 
 import time
 from pixel_ring import pixel_ring
-from mycroft import MycroftSkill, intent_file_handler
+from adapt.intent import IntentBuilder
+from mycroft import MycroftSkill, intent_handler
 from mycroft.messagebus.message import Message
 from mycroft.util.log import LOG
 
@@ -64,10 +65,10 @@ class ReSpeaker_4mic_hat(MycroftSkill):
     def handle_listener_off(self, message):
         LOG.debug("off")
         pixel_ring.off()
-
-    @intent_file_handler('ring.pixel.respeaker.intent')
+        
+    @intent_handler(IntentBuilder("").require("pixel").require("Words"))
     def handle_ring_pixel_respeaker(self, message):
-        self.speak_dialog('ring.pixel.respeaker')
+        self.speak_dialog('pixel')
 
 
 def create_skill():
